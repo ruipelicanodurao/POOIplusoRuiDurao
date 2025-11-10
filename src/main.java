@@ -15,6 +15,6 @@ public class Main {
         double raio = scanner.nextDouble();
         double area = Math.PI * Math.pow(raio, 2);
         System.out.println(String.format("Área do circulo: %.2f", area));
-
+        scanner.close(); 
     }
 }
