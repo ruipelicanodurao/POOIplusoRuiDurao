@@ -6,40 +6,40 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        //Exercicio 1: Escreva um programa que pergunte ao utilizador qual é a sua altura e peso,
-        //de modo a calcular o IMC, e dizer ao utilizador qual o valor e em que categoria se insere.
-        //Tip: IMC = Peso / AlturaA2
+        //Exercicio 2: Escreva um programa que pergunte ao utilizador por 3 nümeros inteiros
+        //quaisquer, e o programa deverå imprimir esses mesmos nümeros por ordem crescente;
+        //Tip: Utilize variåveis auxiliares
 
-        System.out.print("Digite a sua altura em metros (ex: 1.75): ");
-        double altura = scanner.nextDouble();
+        int num1, num2, num3;
+        System.out.println("Digite o primeiro número inteiro:");
+        num1 = scanner.nextInt();
 
-        System.out.print("Digite o seu peso em kg (ex: 68.5): ");
-        double peso = scanner.nextDouble();
+        System.out.println("Digite o segundo número inteiro:");
+        num2 = scanner.nextInt();
 
-        // Calcular IMC
-        double imc = peso / Math.pow(altura, 2);
+        System.out.println("Digite o terceiro número inteiro:");
+        num3 = scanner.nextInt();
 
-        // Determinar categoria
-        String categoria;
-        if (imc < 18.5) {
-            categoria = "Abaixo do peso";
-        } else if (imc < 25) {
-            categoria = "Peso normal";
-        } else if (imc < 30) {
-            categoria = "Excesso de peso"; // Sobrepeso
-        } else if (imc < 35) {
-            categoria = "Obesidade grau I";
-        } else if (imc < 40) {
-            categoria = "Obesidade grau II";
-        } else {
-            categoria = "Obesidade grau III";
+        int aux;
+        if (num1 > num2) {
+            aux = num1;
+            num1 = num2;
+            num2 = aux;
+        }
+        if (num1 > num3) {
+            aux = num1;
+            num1 = num3;
+            num3 = aux;
         }
 
-        System.out.println(String.format("O seu IMC é: %.2f (%s)", imc, categoria));
-        scanner.close();
+        if (num2 > num3) {
+            aux = num2;
+            num2 = num3;
+        }
+
+        System.out.println(String.format("Numeros por ordem crescente: %d %d %d", num1, num2, num3));
 
 
-        //new line
 
     }
 }
