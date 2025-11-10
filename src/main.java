@@ -24,5 +24,6 @@ public class Main {
         System.out.println("Digite seu peso: ");
         peso = scanner.nextDouble();
         System.out.println(String.format("Nome: %s, Idade: %d, Altura: %.2f, Peso: %.2f", nome, idade, altura, peso));
+        scanner.close();
     }
 }
