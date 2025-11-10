@@ -6,27 +6,37 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        //Escreva um programa que imprima a nota de 3 testes na consola e calcule a nota final
-        //das avaliacöes desse mesmo aluno, sabendo que o teste A e B valem 40%, mas o teste C
-        //vale 20%. Calcule tambem a média entre os 3 testes.
-        //Tip: multiplique o valor da nota escolhida aleatoriamente pela percentagem que equivale
+        //Exercicio 1: Escreva um programa que pergunte ao utilizador qual é a sua altura e peso,
+        //de modo a calcular o IMC, e dizer ao utilizador qual o valor e em que categoria se insere.
+        //Tip: IMC = Peso / AlturaA2
 
-        float teste_A;
-        float teste_B;
-        float teste_C;
-        double media;
-        float nota_final;
-        System.out.println("Insira a nota do primeiro teste: ");
-        teste_A = scanner.nextFloat();
+        System.out.print("Digite a sua altura em metros (ex: 1.75): ");
+        double altura = scanner.nextDouble();
 
-        System.out.println("Insira a nota do segundo teste: ");
-        teste_B = scanner.nextFloat();
+        System.out.print("Digite o seu peso em kg (ex: 68.5): ");
+        double peso = scanner.nextDouble();
 
-        System.out.println("Insira a nota do terceiro teste: ");
-        teste_C = scanner.nextFloat();
+        // Calcular IMC
+        double imc = peso / Math.pow(altura, 2);
 
-        nota_final = teste_A * 0.4f + teste_B * 0.4f + teste_C * 0.2f;
-        media = (teste_A + teste_B + teste_C) / 3;
-        System.out.println(String.format("Nota final do aluno: %.2f, media: %.2f", nota_final, media));
+        // Determinar categoria
+        String categoria;
+        if (imc < 18.5) {
+            categoria = "Abaixo do peso";
+        } else if (imc < 25) {
+            categoria = "Peso normal";
+        } else if (imc < 30) {
+            categoria = "Excesso de peso"; // Sobrepeso
+        } else if (imc < 35) {
+            categoria = "Obesidade grau I";
+        } else if (imc < 40) {
+            categoria = "Obesidade grau II";
+        } else {
+            categoria = "Obesidade grau III";
+        }
+
+        System.out.println(String.format("O seu IMC é: %.2f (%s)", imc, categoria));
+        scanner.close();
+
     }
 }
