@@ -7,3 +7,5 @@ Para publicar o resultado dos vossos trabalhos, devem criar um novo branch, tend
 Exemplo:
 Rui_Durao_Exercicio_#1
 Rui_Durao_Exercicio_#2
+
+
