@@ -1,0 +1,39 @@
+name: Verificar Branches Iguais
+
+on:
+  push:
+    branches:
+      - '**'  # Corre em push em qualquer branch
+
+jobs:
+  compara-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Puxa todos os branches e histórico completo
+
+      - name: Encontrar branches no repositório
+        run: |
+          git branch -r | grep -v '\->' | sed 's/origin\///' > branches.txt
+
+      - name: Comparar conteúdo dos branches
+        run: |
+          BRANCHES=($(cat branches.txt))
+          IGUAIS=()
+          for ((i = 0; i < ${#BRANCHES[@]}; i++)); do
+            for ((j = i+1; j < ${#BRANCHES[@]}; j++)); do
+              DIFF=$(git diff origin/${BRANCHES[$i]}..origin/${BRANCHES[$j]})
+              if [ -z "$DIFF" ]; then
+                IGUAIS+=("${BRANCHES[$i]} == ${BRANCHES[$j]}")
+              fi
+            done
+          done
+          if [ "${#IGUAIS[@]}" -gt 0 ]; then
+            echo "Branches com conteúdo igual:"
+            printf "%s\n" "${IGUAIS[@]}"
+            exit 1  # Fail para ser reportado!
+          else
+            echo "Não foram encontrados branches totalmente iguais."
+          fi
