@@ -6,15 +6,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Exercicios #1
-        //• Somar 5 nümeros inteiros e imprimir para a consola.
-        int sum = 0;
-        for(int cnt = 0; cnt < 5; cnt++){
-            System.out.print("Digite um numero inteiro: ");
-            sum += scanner.nextInt();
-        }
-        System.out.println(sum);
-        scanner.close();
+        //Exercicio #2
+        //Calcular a årea de um circulo de acordo com um certo raio, e imprimir para a consola;
+        //Utilizar "raio" como argumento ao compilar na consola
+        //Årea de um circulo: pi * raio * raio
+
+        System.out.print("Digite o raio do círculo: ");
+        double raio = scanner.nextDouble();
+        double area = Math.PI * Math.pow(raio, 2);
+        System.out.println(String.format("Área do circulo: %.2f", area));
 
     }
 }
