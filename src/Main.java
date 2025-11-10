@@ -38,5 +38,8 @@ public class Main {
         System.out.println(String.format("O seu IMC é: %.2f (%s)", imc, categoria));
         scanner.close();
 
+
+        //new line
+
     }
 }
