@@ -11,33 +11,18 @@ public class Main {
         //altura, peso, utilizando o conhecimento de variaveis e impressäo das mesmas
         //Tip: Defina as variaveis corretas conforme o que é pedido (idade = int, nome = String, etc)
 
-        System.out.print("Digite a sua altura em metros (ex: 1.75): ");
-        double altura = scanner.nextDouble();
-
-        System.out.print("Digite o seu peso em kg (ex: 68.5): ");
-        double peso = scanner.nextDouble();
-
-        // Calcular IMC
-        double imc = peso / Math.pow(altura, 2);
-
-        // Determinar categoria
-        String categoria;
-        if (imc < 18.5) {
-            categoria = "Abaixo do peso";
-        } else if (imc < 25) {
-            categoria = "Peso normal";
-        } else if (imc < 30) {
-            categoria = "Excesso de peso"; // Sobrepeso
-        } else if (imc < 35) {
-            categoria = "Obesidade grau I";
-        } else if (imc < 40) {
-            categoria = "Obesidade grau II";
-        } else {
-            categoria = "Obesidade grau III";
-        }
-
-        System.out.println(String.format("O seu IMC é: %.2f (%s)", imc, categoria));
-        scanner.close();
-
+        int idade;
+        String nome;
+        double altura;
+        double peso;
+        System.out.println("Digite seu nome: ");
+        nome = scanner.nextLine();
+        System.out.println("Digite sua idade: ");
+        idade = scanner.nextInt();
+        System.out.println("Digite sua altura: ");
+        altura = scanner.nextDouble();
+        System.out.println("Digite seu peso: ");
+        peso = scanner.nextDouble();
+        System.out.println(String.format("Nome: %s, Idade: %d, Altura: %.2f, Peso: %.2f", nome, idade, altura, peso));
     }
 }
