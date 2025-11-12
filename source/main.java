@@ -1,29 +1,20 @@
-//Exercício 1
-import java.util.Scanner;
+//Exercício 9
 void main() {
-    Scanner scanner = new Scanner(System.in);
-    final int PIN_CORRETO = 1234;
-    int tentativas = 0;
-    boolean pinCorreto = false;
+    int somaWhile = 0;
+    int contador = 1;
 
-    System.out.println("Introduza o seu PIN (máximo de 3 tentativas):");
-
-    while (tentativas < 3 && !pinCorreto) {
-        System.out.print("Tentativa " + (tentativas + 1) + ": ");
-        int pin = scanner.nextInt();
-
-        if (pin == PIN_CORRETO) {
-            System.out.println("PIN CORRETO");
-            pinCorreto = true;
-        } else {
-            System.out.println("PIN ERRADO");
-            tentativas++;
-        }
+    while (contador <= 100) {
+        somaWhile += contador;
+        contador++;
     }
 
-    if (!pinCorreto) {
-        System.out.println("Demasiadas tentativas falhadas. Acesso bloqueado.");
+    System.out.println("Soma de 1 a 100 com while: " + somaWhile);
+
+    int somaFor = 0;
+
+    for (int i = 1; i <= 100; i++) {
+        somaFor += i;
     }
 
-    scanner.close();
+    System.out.println("Soma de 1 a 100 com for: " + somaFor);
 }
