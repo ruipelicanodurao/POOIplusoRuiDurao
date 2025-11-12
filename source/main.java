@@ -1,20 +1,27 @@
+import java.util.Scanner;
 //Exercício 9
 void main() {
-    int somaWhile = 0;
-    int contador = 1;
+    Scanner scanner = new Scanner(System.in);
 
-    while (contador <= 100) {
-        somaWhile += contador;
-        contador++;
+    System.out.print("Introduza um número para calcular o factorial: ");
+    int numero = scanner.nextInt();
+
+    long factorialWhile = 1;
+    int contador = numero;
+
+    while (contador > 1) {
+        factorialWhile *= contador;
+        contador--;
     }
 
-    System.out.println("Soma de 1 a 100 com while: " + somaWhile);
+    long factorialFor = 1;
 
-    int somaFor = 0;
-
-    for (int i = 1; i <= 100; i++) {
-        somaFor += i;
+    for (int i = numero; i > 1; i--) {
+        factorialFor *= i;
     }
 
-    System.out.println("Soma de 1 a 100 com for: " + somaFor);
+    System.out.println("Factorial de " + numero + " com while: " + factorialWhile);
+    System.out.println("Factorial de " + numero + " com for: " + factorialFor);
+
+    scanner.close();
 }
