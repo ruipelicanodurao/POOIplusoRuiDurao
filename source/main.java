@@ -1,31 +1,48 @@
-//Exercício 1
+//Exercício 6
 import java.util.Scanner;
 void main() {
     Scanner scanner = new Scanner(System.in);
 
-    System.out.print("Introduza o seu peso (kg): ");
-    double peso = scanner.nextDouble();
+    System.out.print("Introduza o primeiro número: ");
+    int num1 = scanner.nextInt();
 
-    System.out.print("Introduza a sua altura (m): ");
-    double altura = scanner.nextDouble();
+    System.out.print("Introduza o segundo número: ");
+    int num2 = scanner.nextInt();
 
-    double imc = peso / (altura * altura);
+    System.out.print("Introduza o terceiro número: ");
+    int num3 = scanner.nextInt();
 
-    System.out.printf("\nO seu IMC é: %.2f\n", imc);
+    int menor, meio, maior;
 
-    if (imc < 18.5) {
-        System.out.println("Categoria: Abaixo do peso");
-    } else if (imc >= 18.5 && imc <= 24.9) {
-        System.out.println("Categoria: Peso ideal (parabéns)");
-    } else if (imc >= 25.0 && imc <= 29.9) {
-        System.out.println("Categoria: Levemente acima do peso");
-    } else if (imc >= 30.0 && imc <= 34.9) {
-        System.out.println("Categoria: Obesidade grau I");
-    } else if (imc >= 35.0 && imc <= 39.9) {
-        System.out.println("Categoria: Obesidade grau II (severa)");
+    if (num1 <= num2 && num1 <= num3) {
+        menor = num1;
+        if (num2 <= num3) {
+            meio = num2;
+            maior = num3;
+        } else {
+            meio = num3;
+            maior = num2;
+        }
+    } else if (num2 <= num1 && num2 <= num3) {
+        menor = num2;
+        if (num1 <= num3) {
+            meio = num1;
+            maior = num3;
+        } else {
+            meio = num3;
+            maior = num1;
+        }
     } else {
-        System.out.println("Categoria: Obesidade grau III (mórbida)");
+        menor = num3;
+        if (num1 <= num2) {
+            meio = num1;
+            maior = num2;
+        } else {
+            meio = num2;
+            maior = num1;
+        }
     }
 
+    System.out.println("\nNúmeros por ordem crescente: " + menor + ", " + meio + ", " + maior);
     scanner.close();
 }
