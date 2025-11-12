@@ -2,47 +2,28 @@
 import java.util.Scanner;
 void main() {
     Scanner scanner = new Scanner(System.in);
+    final int PIN_CORRETO = 1234;
+    int tentativas = 0;
+    boolean pinCorreto = false;
 
-    System.out.print("Introduza o primeiro número: ");
-    int num1 = scanner.nextInt();
+    System.out.println("Introduza o seu PIN (máximo de 3 tentativas):");
 
-    System.out.print("Introduza o segundo número: ");
-    int num2 = scanner.nextInt();
+    while (tentativas < 3 && !pinCorreto) {
+        System.out.print("Tentativa " + (tentativas + 1) + ": ");
+        int pin = scanner.nextInt();
 
-    System.out.print("Introduza o terceiro número: ");
-    int num3 = scanner.nextInt();
-
-    int menor, meio, maior;
-
-    if (num1 <= num2 && num1 <= num3) {
-        menor = num1;
-        if (num2 <= num3) {
-            meio = num2;
-            maior = num3;
+        if (pin == PIN_CORRETO) {
+            System.out.println("PIN CORRETO");
+            pinCorreto = true;
         } else {
-            meio = num3;
-            maior = num2;
-        }
-    } else if (num2 <= num1 && num2 <= num3) {
-        menor = num2;
-        if (num1 <= num3) {
-            meio = num1;
-            maior = num3;
-        } else {
-            meio = num3;
-            maior = num1;
-        }
-    } else {
-        menor = num3;
-        if (num1 <= num2) {
-            meio = num1;
-            maior = num2;
-        } else {
-            meio = num2;
-            maior = num1;
+            System.out.println("PIN ERRADO");
+            tentativas++;
         }
     }
 
-    System.out.println("\nNúmeros por ordem crescente: " + menor + ", " + meio + ", " + maior);
+    if (!pinCorreto) {
+        System.out.println("Demasiadas tentativas falhadas. Acesso bloqueado.");
+    }
+
     scanner.close();
 }
